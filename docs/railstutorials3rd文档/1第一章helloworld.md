@@ -1,6 +1,8 @@
 ## Demo1 - HelloWorld
 
 > 来自 rails tutorial 3rd
+> 源码：https://bitbucket.org/imedingyiming/demo1-helloworld
+
 
 ### 新建项目
 

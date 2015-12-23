@@ -1,5 +1,9 @@
 ## Demo2 toy app
 
+> Rails Tutorial第二章
+> 源码：https://bitbucket.org/imedingyiming/demo2-toyapp
+
+
 ### 新建
 
 ```
@@ -62,8 +66,8 @@ DELETE   /users/1        destroy 删除ID为1 的用户
 #app/models/user.rb
 class User < ActiveRecord::Base
   has_many :microposts
-  validates FILL_IN, presence: true
-  validates FILL_IN, presence: true
+  validates :name, presence: true
+  validates :email, presence: true
 end
 ```
 
@@ -95,7 +99,7 @@ bundle exec rake db:migrate
 ```
 #app/models/micropost.rb
 class Micropost < ActiveRecord::Base
-  belogins_to :user # 一个微博属于一个用户
+  belongs_to :user # 一个微博属于一个用户
   validates :content,length: { maximum: 140 },presence: true
 end
 ```
