@@ -16,7 +16,7 @@
 ```
 rails new demo5-filling-in-layout --skip-bundle
 
-# 拷贝demo3中gemfile内容并添加
+//拷贝demo3中gemfile内容并添加
 gem 'bootstrap-sass','3.2.0.0'
 
 source 'https://rubygems.org'
@@ -92,7 +92,7 @@ rails g controller StaticPages home help contact about
   要做的是三个页面标题区分
 
 ```
-# test/controllers/static_pages_controller_test.rb
+//test/controllers/static_pages_controller_test.rb
   def setup
     @base_title = 'Rails Tutorial'
   end
@@ -130,7 +130,7 @@ end
   使用辅助方法灵活改变标题
 
 ```
-# app/helpers/application_helper.rb
+//app/helpers/application_helper.rb
 def full_title(page_title = '')
   base_title = 'Rails Tutorial'
   if page_title.empty?
@@ -140,10 +140,10 @@ def full_title(page_title = '')
   end
 end
 
-# 然后到布局文件中直接用 app/views/layouts/application.html.erb
+//然后到布局文件中直接用 app/views/layouts/application.html.erb
 <%= full_title(:title) %>
 
-# 子页面中按需填充
+//子页面中按需填充
 <% provide(:title,'Help') %>
 ```
 
@@ -153,23 +153,23 @@ end
 * 首页链接
 
 ```
-# 关键代码
+//关键代码
 <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
 
-# 加载的图片位于 app/assets/images/文件夹中
+//加载的图片位于 app/assets/images/文件夹中
 <%= link_to image_tag("rails.png", alt: "Rails logo"),'http://rubyonrails.org/' %>
 ||
 <img alt="Rails logo" src="/assets/rails-9308b8f92fea4c19a3a0d8385b494526.png" />
 
-# 获取图片
+//获取图片
 curl -O http://rubyonrails.org/images/rails.png
 mv rails.png app/assets/images/
-``
+```
 
 ### 添加bootstrap的样式
 
 ```
-# 新建app/assets/stylesheets/custom.css.scss
+//新建app/assets/stylesheets/custom.css.scss
 @import "bootstrap-sprockets";
 @import "bootstrap";
 ...
@@ -222,7 +222,7 @@ mv rails.png app/assets/images/
   ```
   <%= link_to "About", about_path %>
 
- #网站中链接的路由和URL地址的映射关系
+ //网站中链接的路由和URL地址的映射关系
  页面  URL       具名路由
  首页  /         root_path
  关于  /about    about_path
@@ -305,7 +305,7 @@ heroku open
 
 ```
 rails generate controller Users new
-# 生成一系列内容
+//生成一系列内容
 bundle exec rake test
 ```
 
@@ -338,14 +338,14 @@ get 'signup' => 'users#new'  #添加 'signup'可以得到具名路由`signup_pat
 * 添加注册链接
 
 ```
-# home.html.erb
+//home.html.erb
 <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary"%>
 ```
 
 * 添加注册标题
 
 ```
-# app/views/users/new.html.erb
+//app/views/users/new.html.erb
 <% provide(:title,'Sign up') %>
 ```
 
@@ -372,7 +372,7 @@ git branch
 * 在测试中引入应用的辅助方法
 
 ```
-#test/test_helper.rb
+//test/test_helper.rb
 ...
 include ApplicationHelper
 ...
@@ -381,7 +381,7 @@ include ApplicationHelper
 * 测试中使用full_title方法
 
 ```
-#test/integration/site_layout_test.rb
+//test/integration/site_layout_test.rb
 ...
 get signup_path
 assert_select "title", full_title("Sign up")
@@ -393,7 +393,7 @@ assert_select "title", full_title("Sign up")
 > 使用assert_equal方法通过 == 操作符检查两个值是否相等
 
 ```
-# test/helpers/application_helper_test.rb
+//test/helpers/application_helper_test.rb
 require 'test_helper'
 class ApplicationHelperTest < ActionView::TestCase
   test "full title helper" do
